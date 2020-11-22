@@ -1,7 +1,7 @@
-package com.outPost.controller.service;
+package com.outPost.service;
 
-import com.youbenzi.md2.markdown.*;
-import com.youbenzi.md2.markdown.builder.*;
+import com.jiahao.markdown.*;
+import com.jiahao.markdown.builder.*;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -179,7 +179,8 @@ public class MdService {
         List<String> lines = new ArrayList<String>();
 
         try {
-            String[] split = content.split("/n");
+            String[] split = content.split("\n");
+            System.out.println("元素个数"+split.length);
             for (String tmp : split) {    //将内容每一行都存入list中
                 lines.add(tmp);
             }

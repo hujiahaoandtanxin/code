@@ -8,10 +8,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/eladmin/pom.xml" />
-        <option value="$PROJECT_DIR$/MD2File/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-es/pom.xml" />
+        <option value="$PROJECT_DIR$/MD2File/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

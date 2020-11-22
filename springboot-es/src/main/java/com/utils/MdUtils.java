@@ -1,12 +1,14 @@
-package com.md;
+package com.utils;
 
-import com.youbenzi.md2.export.FileFactory;
+
+import com.jiahao.export.FileFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
-public class Test {
+public class MdUtils {
+
     public static void main(String[] args) {
         try {
             FileFactory.produce(new File("/Users/hujh/Downloads/mdtest.md"), "/Users/hujh/Downloads/mdtest.docx");
@@ -16,4 +18,5 @@ public class Test {
             e.printStackTrace();
         }
     }
+
 }
