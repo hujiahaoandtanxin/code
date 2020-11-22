@@ -1,0 +1,64 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<head>
+    <link rel="stylesheet" href="editor.md/css/editormd.css" />
+    <link rel="stylesheet" href="outfile/other.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <button id="savaBtn">存储文本</button>
+    <!-- loading -->
+    <div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        data-backdrop='static'>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body">
+                    请稍候。。。<span id="result"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="editor">
+        <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
+        <textarea style="display:none;">### Hello Editor.md !</textarea>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="editor.md/editormd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            var editor = editormd("editor", {
+                // width: "100%",
+                // height: "100%",
+                // markdown: "xxxx",     // dynamic set Markdown text
+                path: "editor.md/lib/"  // Autoload modules mode, codemirror, marked... dependents libs path
+            });
+        });
+        $('#savaBtn').click(function () {
+            var mdContent = document.getElementsByTagName('textarea')[0].innerHTML;
+            console.log(mdContent);
+            //显示
+            $('#loading').modal('show');
+            $.ajax({
+                url: 'http://127.0.0.1:8081/md/save',
+                type: 'POST',
+                data: { content: mdContent },
+                success: function (data) {
+                    //影藏
+                    $('#loading').modal('hide');
+                    
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
